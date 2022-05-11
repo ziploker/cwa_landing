@@ -1,0 +1,30 @@
+<%
+=begin%>
+ <h1>Landings#index</h1>
+<p>Find me in app/views/landings/index.html.erb</p> 
+<%
+=end%>
+
+<%= javascript_pack_tag 'genesis' %>
+
+
+<%
+=begin%>
+ <%= content_tag :div,
+    
+    id: "alien_data_dump",
+    data: {current_user: @current_user, 
+            test_string: @test_string, 
+            
+            lastStory: @lastStory, 
+            secondToLastStory: @secondToLastStory, 
+            thirdToLastStory: @thirdToLastStory, 
+            fourthToLastStory: @fourthToLastStory, 
+            fromPath: @path,
+            artData: @seeIfStoryExists}.to_json do %>
+    
+<% end %> 
+<%
+=end%>
+
+
