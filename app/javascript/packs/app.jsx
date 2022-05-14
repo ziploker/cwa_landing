@@ -9,6 +9,23 @@ import {
     Route
 } from "react-router-dom"
 
+import {
+    EmailIcon,
+    FacebookIcon,
+    
+    TwitterIcon,
+    
+    WhatsappIcon,
+
+    EmailShareButton,
+    FacebookShareButton,
+    TwitterShareButton,
+    WhatsappShareButton,
+    
+  } from "react-share";
+
+  
+
 // import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 // import axios from 'axios'
 // import Header from "./header"
@@ -17,8 +34,10 @@ import {
 // import SignupSection from "./signup"
 // import Shop from "./shop"
 // import Footer from "./footer"
-// import styled, { ThemeProvider } from 'styled-components'
-// import GlobalStyles from "./global"
+ import { ThemeProvider } from 'styled-components'
+ import GlobalStyles from "./global"
+ import styled from 'styled-components/macro';
+ import bg from '../../assets/images/bg'
 // import Article from './article'
 // import SideMenu from './sidemenu'
 
@@ -74,18 +93,55 @@ function App(props){
     
     
    
-    // const theme = {
+    const theme = {
         
-    //     white:        "#ffffff",
-    //     offWhite:     "#f4f4f4",
-    //     lightBlue:    "#56c5cc",  //(86,197,204)
-    //     pink:         "#f14f7b",  //(241,79,123)
-    //     orange:       "#f7aa1c",  //(247,170,28)
-    //     darkBlue:     "#000321",  //(0,3,33)
-    //     blueGray:     "#0E2021",
-    //     black:        "#181818"   //(0,0,0)
-    // };
+        white:        "#ffffff",
+        offWhite:     "#f4f4f4",
+        lightBlue:    "#56c5cc",  //(86,197,204)
+        pink:         "#f14f7b",  //(241,79,123)
+        orange:       "#f7aa1c",  //(247,170,28)
+        darkBlue:     "#000321",  //(0,3,33)
+        blueGray:     "#0E2021",
+        black:        "#181818"   //(0,0,0)
+    };
     
+
+    const MainContainer = styled.div`
+    
+        
+
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+
+        background-image: url(${bg});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom left;
+    
+    
+    
+    `;
+
+    const SocialContainer = styled.div`
+    
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: min-content min-content min-content min-content;
+        grid-template-rows: min-content;
+
+    
+    `;
+
+
+    const socialMediaStyles = {
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        color: 'white',
+        padding: '0 30px',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    };
 
     
     // const handleSuccessfulAuth = data => {
@@ -308,17 +364,40 @@ function App(props){
     
     return (
 
-        //  <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+        
+            <GlobalStyles/>
             
-            
-        //     <Router>
-            
-        //         <GlobalStyles/>
+            <MainContainer>
+                
+                <SocialContainer>
+                    <TwitterIcon size={32} round={true} />
+                    <FacebookShareButton url={"https://cwa-union.org/"} quote={"sample quote"} hashtag={"#cwa"}>
+                        <FacebookIcon size={32} round={true} />
+                    </FacebookShareButton>
+                    <EmailIcon size={32} round={true} />
+                    <WhatsappIcon size={32} round={true} />
+                </SocialContainer>
                 
                 
                 
-                   
-        //             <Header 
+            </MainContainer>
+         
+        </ThemeProvider>
+        
+    );
+}
+
+
+// export default props => <App {...props} />;
+export default App;
+
+
+
+
+
+
+//             <Header 
         //                 userState={userState} 
         //                 handleLogOutClick={handleLogOutClick}
         //                 setLoginClicked={setLoginClicked}
@@ -352,12 +431,3 @@ function App(props){
         //        <Footer/> */}
                 
         //     </Router>
-           
-        // </ThemeProvider>
-        <h1>START</h1>
-    );
-}
-
-
-// export default props => <App {...props} />;
-export default App;
